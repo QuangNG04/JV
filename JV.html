@@ -29,8 +29,6 @@
 </head>
 <body>
 
-<img id="image" src="https://picsum.photos/id/1015/400/300" alt="Ảnh hiển thị">
-
 <div>
  <div id="image" class="preview-box">Di chuột qua một hình ảnh bên dưới để hiển thị ở đây.</div>
  <img class="preview" src="https://picsum.photos/id/1015/400/300" alt="Ảnh 1" onmouseover="upDate(this)" onmouseout="unDo()">
@@ -44,16 +42,13 @@
 <script>
 function upDate(previewPic) {
     console.log("Sự kiện kích hoạt: Di chuyển vào/Focus ảnh");
-    let imgBox = document.getElementById('image');
-    imgBox.innerHTML = `<img src="${previewPic.src}" alt="${previewPic.alt}" style="width:100%; height:100%; object-fit:cover;">`;
+    document.getElementById('image').innerHTML = `<img src="${previewPic.src}" alt="${previewPic.alt}" style="width:100%; height:100%; object-fit:cover;">`;
 }
 
 function unDo() {
     console.log("Sự kiện kích hoạt: Rời khỏi/Blur ảnh");
     document.getElementById('image').innerHTML = "Di chuột qua một hình ảnh bên dưới để hiển thị ở đây.";
 }
-}
-
 window.onload = function() {  console.log("Trang đã tải xong (onload)");
  const images = document.querySelectorAll('.preview');
 
